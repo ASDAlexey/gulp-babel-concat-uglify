@@ -6,9 +6,17 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
-    "gulp-sourcemaps": "^2.4.1"
+    "gulp-html-replace": "^1.6.2",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.0",
+    "gulp-usemin": "^0.3.28"
   },
   "dependencies": {
-    "gulp-clean": "^0.3.2"
+    "gulp-clean": "^0.3.2",
+    "gulp-copy": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-usemin": "^0.3.28",
+    "run-sequence": "^1.2.2"
   }
 }
