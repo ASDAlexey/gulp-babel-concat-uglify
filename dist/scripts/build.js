@@ -1,2 +1,0 @@
-"use strict";function _classCallCheck(o,n){if(!(o instanceof n))throw new TypeError("Cannot call a class as a function")}console.log("1");var Asd=function o(){_classCallCheck(this,o),console.log("aaa"),console.log("class")},a=function(){console.log("fn a")};a(),new Asd,console.log("2"),console.log("aa55");var d=function(){console.log("fn a")};d(),console.log("vendor");
-//# sourceMappingURL=build.js.map

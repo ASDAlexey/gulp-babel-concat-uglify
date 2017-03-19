@@ -1,20 +1,13 @@
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
+const runSequence = require('run-sequence');
+const clean = require('gulp-clean');
+const gulpUseref = require('gulp-useref');
+const fs = require('fs');
+const useref = require('useref');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
-var clean = require('gulp-clean');
-var usemin = require('gulp-usemin');
-var uglify = require('gulp-uglify');
-var htmlmin = require('gulp-htmlmin');
-var cleanCss = require('gulp-clean-css');
-var rev = require('gulp-rev');
-var gulpCopy = require('gulp-copy');
-var rename = require("gulp-rename");
-var runSequence = require('run-sequence');
-var htmlreplace = require('gulp-html-replace');
-var useref = require('useref');
-var gulpUseref = require('gulp-useref');
-var fs = require('fs');
+const uglify = require('gulp-uglify');
 
 gulp.task('clean:dist', function () {
   return gulp.src('dist/*')
@@ -26,26 +19,10 @@ gulp.task('clean:dist-scripts', function () {
              .pipe(clean({ force: true }))
 });
 
-// gulp.task('assets', function () {
-//   return gulp.src('app/index.html').pipe(gulp.dest('dist'));
-// });
-
 gulp.task('htmlreplace', function () {
   return gulp.src('app/*.html')
              .pipe(gulpUseref())
              .pipe(gulp.dest('dist'));
-});
-
-gulp.task('babel', function () {
-  return gulp.src('app/scripts/*.js')
-             .pipe(sourcemaps.init())
-             .pipe(babel({
-               presets: ['es2015']
-             }))
-             .pipe(concat('main.js'))
-             .pipe(uglify())
-             .pipe(sourcemaps.write('.'))
-             .pipe(gulp.dest('dist'))
 });
 
 gulp.task('useref', function () {
@@ -93,8 +70,6 @@ gulp.task('useref', function () {
 gulp.task('default', function (callback) {
   runSequence(
     'clean:dist',
-    // 'assets',
-    // 'babel',
     'htmlreplace',
     'clean:dist-scripts',
     'useref',
